@@ -1,0 +1,17 @@
+.navbar{
+    height: 15vh;
+    background-color: rgb(238, 255, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.links{
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+}
+.logo{
+    height: 100%;
+    width: auto;
+    padding: 5px;
+}

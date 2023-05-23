@@ -1,11 +1,11 @@
 import React from 'react'
-import Card from '../../components/Card/Card'
+import Cards from '../../components/Card/Card'
 import MediaCard from '../../components/Card/Card'
-
+import "../../common/products.json"
 export default function Products() {
   return (
     <div>
-      <MediaCard/>
+      <Cards/>
       <MediaCard/>
       <MediaCard/>
     </div>

@@ -1,6 +1,6 @@
 .navbar{
     height: 15vh;
-    background-color: rgb(238, 255, 0);
+    background-color: #2e5b36;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,21 +13,22 @@
 .logo{
     width: auto;
     height: 15vh;
+    color: #fff;
 }
 .active{
     display: flex;
     align-items: center;
     padding: 10px;
-    text-decoration: none;
-    background-color: rgb(255, 178, 83);
-    height: 15vh;
-    color: #000000;
+    color: white;
+  font-weight: bold;
+  text-decoration: none;
   }
   
   .classic {
     display: flex;
     align-items: center;
     padding: 10px;
-    text-decoration: none;
-    color: #000000;
+    color: black;
+  font-weight: normal;
+  text-decoration: none;
   }

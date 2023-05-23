@@ -12,13 +12,13 @@ function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      <main style={{minHeight:"70vh"}}></main>
+      <main style={{minHeight:"75vh"}}>
       <Routes>
-        <Route  path="/" element={Homepage}/>
+        <Route  path="/" element={<Homepage/>}/>
         <Route  path="/products" element={Products}/>
         <Route  path="/cart" element={Cart}/>
       </Routes>
-      <MediaCard/>
+      </main>
       <Footer></Footer>
     </div>
   );

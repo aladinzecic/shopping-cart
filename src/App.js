@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import Homepage from './pages/Homepage/Homepage';
 import Products from './pages/Products/Products';
 import Cart from './pages/Cart/Cart';
-import MediaCard from './components/Card/Card';
 
 function App() {
   return (
@@ -15,7 +14,7 @@ function App() {
       <main style={{minHeight:"75vh"}}>
       <Routes>
         <Route  path="/" element={<Homepage/>}/>
-        <Route  path="/products" element={Products}/>
+        <Route  path="/products" element={<Products/>}/>
         <Route  path="/cart" element={Cart}/>
       </Routes>
       </main>

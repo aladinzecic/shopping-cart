@@ -1,13 +1,41 @@
-import React from 'react'
-import Cards from '../../components/Card/Card'
-import MediaCard from '../../components/Card/Card'
-import "../../common/products.json"
+import React, { useContext, useState } from "react";
+import Kartica from '../../components/Card/Card'
+import { AppContext } from "../../Context/AppContext";
+import "./Products.css"
 export default function Products() {
+  const { products } = useContext(AppContext);
+  const [page, setPage] = useState(1);
+  const handleChange = (event, value) => {
+    setPage(value);
+    window.scrollTo(0, 0); //da se podigne skroz na vrh kad se promeni stranica.
+  };
+  const productPerPage = 12;
+  const numOfPages = Math.ceil(products.length / productPerPage);
+  // console.log(products);
   return (
-    <div>
-      <Cards/>
-      <MediaCard/>
-      <MediaCard/>
-    </div>
-  )
+    <>
+      <div className="card">
+        {products
+          .map((product) => (
+            <Kartica
+              productName={product.title}
+              productPrice={product.price}
+              productImage={product.imageURL}
+              onPress={() => {}}
+            />
+          ))
+          .slice((page - 1) * productPerPage, page * productPerPage)}
+      </div>
+      <div className="paginacija">
+        {/* <Pagination
+          size="large"
+          shape="rounded"
+          color="error"
+          count={numOfPages}
+          page={page}
+          onChange={handleChange}
+        /> */}
+      </div>
+    </>
+  );
 }

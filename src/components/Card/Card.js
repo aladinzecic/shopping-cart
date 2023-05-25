@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./Card.css";
-export default function Cards({
+export default function Kartica({
   productName,
   productPrice,
   productImage,
@@ -35,7 +35,7 @@ export default function Cards({
           {currencySign}
         </Typography>
         <CardActions>
-          <Button onClick={onPress} size="small" className="btn-add">
+          <Button onClick={onClick} size="small" className="btn-add">
             ADD TO CART
           </Button>
         </CardActions>

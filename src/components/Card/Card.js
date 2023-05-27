@@ -10,13 +10,12 @@ export default function Kartica({
   productName,
   productPrice,
   productImage,
-  currencySign,
   onClick,
 }) {
   return (
     <Card sx={{ maxWidth: 450 }}>
       <CardMedia sx={{ height: 250 }} image={productImage} title="" />
-      <CardContent>
+      <CardContent style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
         <Typography
           gutterBottom
           variant="h5"
@@ -31,11 +30,11 @@ export default function Kartica({
           component="div"
           className="product-price"
         >
-          {productPrice}
-          {currencySign}
+          {productPrice} $
+          
         </Typography>
         <CardActions>
-          <Button onClick={onClick} size="small" className="btn-add">
+          <Button onClick={onClick} size="small" className="btn-add" gutterBottom >
             ADD TO CART
           </Button>
         </CardActions>

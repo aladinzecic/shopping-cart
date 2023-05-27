@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Kartica from '../../components/Card/Card'
 import { AppContext } from "../../Context/AppContext";
 import "./Products.css"
+import { Pagination } from "@mui/material";
 export default function Products() {
   const { products } = useContext(AppContext);
   const [page, setPage] = useState(1);
@@ -27,14 +28,14 @@ export default function Products() {
           .slice((page - 1) * productPerPage, page * productPerPage)}
       </div>
       <div className="paginacija">
-        {/* <Pagination
+        <Pagination
           size="large"
           shape="rounded"
           color="error"
           count={numOfPages}
           page={page}
           onChange={handleChange}
-        /> */}
+        />
       </div>
     </>
   );

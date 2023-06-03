@@ -21,7 +21,7 @@ function onSale(quantity,discount,price){
       </>
     )
   }
-  else{
+  else{ 
     return(
       <h4>{price}$</h4>
     )

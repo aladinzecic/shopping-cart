@@ -1,9 +1,10 @@
 .footer{
-    height: 10vh;
+    height: 15vh;
     background-color: #609966;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 small{
     color: #fff;

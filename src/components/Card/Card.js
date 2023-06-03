@@ -5,16 +5,44 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import "./Card.css";
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';import "./Card.css";
+
+
+
+
+
+
+function onSale(quantity,discount,price){
+  if (quantity>20){
+    const discountPrice=price-(price*discount/10)
+    return(
+      <>
+      <span style={{textDecoration: "line-through",textDecorationColor: "gray",color:"gray"}}>{price}$</span><span style={{fontSize:"32px",fontWeight:"600"}}>        {discountPrice}$</span>
+      </>
+    )
+  }
+  else{
+    return(
+      <h4>{price}$</h4>
+    )
+  }
+}
+
+
 export default function Kartica({
   productName,
   productPrice,
   productImage,
+  productQuantity,
+  productDiscount,
   onClick,
-}) {
+})
+{
   return (
     <div className="around">
+      {productQuantity>20&&<div className="sale-div"><h5>Sale!</h5></div>}
       <div className="card-div">
+      
         <Card
           sx={{
             minWidth: 270,
@@ -30,7 +58,7 @@ export default function Kartica({
             image={productImage}
             title=""
           />
-          <CardContent style={{ display: "flex", flexDirection: "column",padding:0 }}>
+          <CardContent style={{ display: "flex", flexDirection: "column",padding:0,fontFamily:"Varela Round" }}>
             <Typography
             
               gutterBottom
@@ -48,18 +76,21 @@ export default function Kartica({
               component="div"
               className="product-price"
             >
-              {productPrice} $
+              {onSale(productQuantity,productDiscount,productPrice)}
             </Typography>
             <CardActions>
               <Button
-              sx={{ width:"100%",backgroundColor:"#2e5b36",padding:"8 0 8 0" }}
+              sx={{ width:"100%",fontSize:"15px",backgroundColor:"black",padding:"8 0 8 0",borderRadius:0,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Varela Round",":hover": {
+                backgroundColor: "#7ad03a",
+                color: "white"
+              } }}
                 onClick={onClick}
                 size="large"
                 className="btn-add"
                 gutterBottom
                 variant="contained"
               >
-                ADD TO CART
+                <LocalGroceryStoreIcon style={{fontSize:"large",height:"19px",width:"19px"}}/>   ADD TO CART
               </Button>
             </CardActions>
           </CardContent>

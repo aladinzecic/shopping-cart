@@ -3,6 +3,7 @@ import Kartica from '../../components/Card/Card'
 import { AppContext } from "../../Context/AppContext";
 import "./Products.css"
 import { Pagination } from "@mui/material";
+import CartCard from "../../components/cartCard/cartCard";
 export default function Products() {
   const { products } = useContext(AppContext);
   const [page, setPage] = useState(1);
@@ -19,6 +20,8 @@ export default function Products() {
         {products
           .map((product) => (
             <Kartica
+            productQuantity={product.quantity}
+            productDiscount={product.discount}
               productName={product.title}
               productPrice={product.price}
               productImage={product.image_url}
@@ -37,6 +40,8 @@ export default function Products() {
           onChange={handleChange}
         />
       </div>
+      {/* <CartCard></CartCard> */}
+      
     </>
   );
 }

@@ -1,0 +1,17 @@
+.el{
+    width: 33%;
+    height: 33px;
+}
+.imgCart{
+width: 100px;
+height: 100px;
+}
+.imgCart img{
+    width: 100%;
+    height: 100%;
+}
+.quantityCart{
+    background-color: blue;
+    width: 200px;
+    height: 18vh;
+}

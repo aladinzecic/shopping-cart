@@ -13,14 +13,14 @@
 
   }
   .btn-add {
-    color: #2e5b36;
+    color: black;
     font-weight: 600;
     font-family: 'Varela Round', sans-serif;
     max-width: 300px;
     
   }
   .btn-add:hover {
-    background-color: #2e5b36;
+    background-color: #7ad03a;
     color: white;
   }
   .around{
@@ -30,15 +30,34 @@
     justify-content: center;
     align-items: center;
     border: 2px white dotted;
+    position: relative;
+
   }
   .card-div{
     width: 70%;
-    height: 500px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ece6ff;
-    
   }
+
+  .sale-div{
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sale-div h5{
+    color: #fff;
+    font-family: 'Varela Round', sans-serif;
+  }
+
   
 

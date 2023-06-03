@@ -21,7 +21,7 @@ export default function Products() {
             <Kartica
               productName={product.title}
               productPrice={product.price}
-              productImage={product.imageURL}
+              productImage={product.image_url}
               onPress={() => {}}
             />
           ))

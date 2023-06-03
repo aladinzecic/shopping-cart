@@ -1,6 +1,6 @@
 .navbar{
     height: 15vh;
-    background-color: #2e5b36;
+    background-color: #5CDB95;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,8 +11,10 @@
     justify-content: space-around;
 }
 .logo{
+    margin: 0;
+    padding: 0;
     width: auto;
-    height: 15vh;
+    width: 400px;
     color: #fff;
 }
 .active{
@@ -22,6 +24,7 @@
     color: white;
   font-weight: bold;
   text-decoration: none;
+  font-family: 'Varela Round', sans-serif;
   }
   
   .classic {
@@ -31,4 +34,4 @@
     color: black;
   font-weight: normal;
   text-decoration: none;
-  }
+  font-family: 'Varela Round', sans-serif;  }

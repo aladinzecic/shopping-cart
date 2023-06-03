@@ -1,15 +1,44 @@
 .product-name {
     height: 55px;
+    text-align: start;
+    font-family: 'Varela Round', sans-serif;
+    height: 20px;
   }
   .product-price {
     font-weight: 700;
+    font-family: 'Varela Round', sans-serif;
+    text-align: start;
+    margin-top: 0;
+    
+
   }
   .btn-add {
     color: #2e5b36;
     font-weight: 600;
+    font-family: 'Varela Round', sans-serif;
+    max-width: 300px;
     
   }
   .btn-add:hover {
     background-color: #2e5b36;
     color: white;
   }
+  .around{
+    max-width: 450px;
+    height:600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px white dotted;
+  }
+  .card-div{
+    width: 70%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ece6ff;
+    
+  }
+  
+

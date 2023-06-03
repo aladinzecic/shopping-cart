@@ -8,5 +8,5 @@ export default function PaginationRounded() {
       <Pagination count={10} shape="rounded" />
       <Pagination count={10} variant="outlined" shape="rounded" />
     </Stack>
-  );
+  ); 
 }

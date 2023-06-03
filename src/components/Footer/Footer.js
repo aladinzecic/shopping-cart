@@ -6,4 +6,4 @@ export default function Footer(){
             <small>&copy;CopyRight 2023</small>
         </footer>
     )
-} 
+}  

@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "@mui/material/Card";
+import Kartica from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -29,7 +29,7 @@ function onSale(quantity,discount,price){
 }
 
 
-export default function Kartica({
+export default function Card({
   productName,
   productPrice,
   productImage,
@@ -43,7 +43,7 @@ export default function Kartica({
       {productQuantity>20&&<div className="sale-div"><h5>Sale!</h5></div>}
       <div className="card-div">
       
-        <Card
+        <Kartica
           sx={{
             minWidth: 270,
             height: 400,
@@ -61,7 +61,6 @@ export default function Kartica({
           <CardContent style={{ display: "flex", flexDirection: "column",padding:0,fontFamily:"Varela Round" }}>
             <Typography
             
-              gutterBottom
               variant="h6"
               component="div"
               className="product-name"
@@ -71,7 +70,6 @@ export default function Kartica({
               {productName}
             </Typography>
             <Typography
-              gutterBottom
               variant="h4"
               component="div"
               className="product-price"
@@ -87,14 +85,13 @@ export default function Kartica({
                 onClick={onClick}
                 size="large"
                 className="btn-add"
-                gutterBottom
                 variant="contained"
               >
                 <LocalGroceryStoreIcon style={{fontSize:"large",height:"19px",width:"19px"}}/>   ADD TO CART
               </Button>
             </CardActions>
           </CardContent>
-        </Card>
+        </Kartica>
       </div>
     </div>
   );

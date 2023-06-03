@@ -13,5 +13,5 @@ export default function CartCard() {
         </div>
       </div>
     </div> 
-  )
+  ) 
 }

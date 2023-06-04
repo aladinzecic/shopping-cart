@@ -1,6 +1,6 @@
 .footer{
-    height: 15vh;
-    background-color: #609966;
+    height: 10vh;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,3 +11,5 @@ small{
     font-family: 'Varela Round', sans-serif;
 
 }
+
+

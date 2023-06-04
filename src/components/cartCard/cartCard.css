@@ -16,7 +16,7 @@
 .plus{
     background-color: rgb(29, 27, 27);
 }
-.quantity{
+.quantityy{
     background-color: #fff;
     color: black;
     font-size: 18px;
@@ -33,12 +33,21 @@ width: 20vh;
 height: 20vh;
 }
 .text{
-    font-size: 18px;
+    
+    font-size: 26px;
     font-weight: 600;
+
+}
+.text1{
+    width: 5vw;
+    margin-left: 20px;
+    font-size: 32px;
+    display: flex;
 }
 .imgCart img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .quantityCart{
     margin-left: 5vw;

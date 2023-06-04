@@ -5,7 +5,7 @@ import "./Products.css";
 import { Pagination } from "@mui/material";
 
 export default function Products() {
-  const { products } = useContext(AppContext);
+  const { products,addToCart } = useContext(AppContext);
   const [page, setPage] = useState(1);
   
   const handleChange = (event, value) => {
@@ -23,12 +23,15 @@ export default function Products() {
           .map((product) => (
             <Card
               key={product.id}
-              productQuantity={product.quantity}
+              id={product.id}
+              productQuantity={product.totalQuantity}
               productDiscount={product.discount}
               productName={product.title}
               productPrice={product.price}
               productImage={product.image_url}
-              onPress={() => {}}
+              addToCart={() => {
+                addToCart(product.id)
+              }}
             />
           ))
           .slice((page - 1) * productPerPage, page * productPerPage)}

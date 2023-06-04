@@ -1,0 +1,66 @@
+.buy-component{
+    width: 33vw;
+    height: 40vh;
+    margin-top: 15vh;
+}
+.buy-component h2{
+    margin: 0;
+    font-weight: 700;
+    color: black;
+}
+.hr{
+    height: 4px;
+    border: 0;
+    background-color: black;
+}
+.hr1{
+    margin-top: 5px;
+    height: 2px;
+    border: 0;
+    background-color: black;
+}
+.hr2{
+    margin-top: 5px;
+    height: 3px;
+    border: 0;
+    background-color: black;
+    width: 55vw;
+    margin-left: 2vw;
+}
+.buy-component input{
+    margin-top: 1vh;
+    width: 100%;
+    height: 5vh;
+    border: 1px solid black;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.buy-component input::placeholder{
+    padding-left: 40px;
+    color: black;
+    font-weight: 600;
+    font-family: 'Varela Round', sans-serif;
+}
+.buy-component input:focus{
+    outline: none;
+    padding-left: 40px;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+    color: black;
+
+}
+.buy-component input:focus::placeholder {
+    color: transparent;
+  }
+.loyalty{
+    position: absolute;
+    left: 10px;
+    margin-top: 10px;
+}
+
+.mui-btn{
+    width: 100%;
+    margin-top: 20px;
+    background-color: black;
+    color: #fff;
+}

@@ -5,9 +5,9 @@ import "./Products.css";
 import { Pagination } from "@mui/material";
 
 export default function Products() {
-  const { products,addToCart } = useContext(AppContext);
+  const { products,addToCart,cart } = useContext(AppContext);
   const [page, setPage] = useState(1);
-  
+
   const handleChange = (event, value) => {
     setPage(value);
     window.scrollTo(0, 0); // Scroll to the top when the page changes.

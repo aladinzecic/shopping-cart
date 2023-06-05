@@ -6,44 +6,43 @@ const AppContext = createContext();
 function ContextProvider({ children }) {
   const [products, setProducts] = useState(productsJSON);
   const [cart, setCart] = useState([]);
-
-  // const increase = (id) => {
-  //   const product = products.find((product) => product.id === id);
-  //   if (product.totalQuantity > 0) {
-  //     setCart(
-  //       cart.map((product)=>{
-  //         if(product.id===id){
-  //           return{
-  //             ...product,
-  //             totalQuantity: product.totalQuantity + 1,
-  //           }
-  //         }
-  //         else{
-  //           return product
-  //         }
-  //       })
-  //     )
-  //     setCart(
-  //       cart.map((product)=>{
-  //         if(product.id===id){
-  //           return{
-  //             ...product,
-  //             quantityInCart: product.quantityInCart + 1,
-  //           }
-  //         }
-  //         else{
-  //           return product
-  //         }
-  //       })
-  //     )
-  //   }
-  //   else{
-  //     toast.error("There are no product in stock!")
-  //   }
-  // };
-  const addToCart = (id) => {
-    if (products.find((product) => product.id === id).totalQuantity === 0) {
+  const increase = (id) => {
+    const product = products.find((product) => product.id === id);
+    if (product.totalQuantity > 0) {
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              totalQuantity: product.totalQuantity - 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      );
+      setCart(
+        cart.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              quantityInCart: product.quantityInCart + 1,
+            };
+          } else {
+            return product;
+          }
+        })
+      );
+    } else {
       toast.error("There are no product in stock!");
+    }
+  };
+
+
+  const decrease = (id) => {
+    const product = cart.find((product) => product.id === id);
+    if (product.quantityInCart === 1) {
+      removeFromCart(id);
     } else {
       setProducts(
         products.map((product) => {
@@ -53,9 +52,39 @@ function ContextProvider({ children }) {
               totalQuantity: product.totalQuantity + 1,
             };
           } else {
+            return product;
+          }
+        })
+      );
+      setCart(
+        cart.map((product) => {
+          if (product.id === id) {
             return {
               ...product,
+              quantityInCart: product.quantityInCart - 1,
             };
+          } else {
+            return product;
+          }
+        })
+      );
+    }
+  };
+
+  const addToCart = (id) => {
+    if (products.find((product) => product.id === id).totalQuantity === 0) {
+      toast.error("There are no product in stock!");
+    } else {
+      console.log(id)
+      setProducts(
+        products.map((product) => {
+          if (product.id === id) {
+            return {
+              ...product,
+              totalQuantity: product.totalQuantity - 1,
+            };
+          } else {
+            return product;
           }
         })
       );
@@ -69,19 +98,61 @@ function ContextProvider({ children }) {
       toast.success("Successfully added to cart!");
     }
   };
-  function onSale(quantity,discount,price){
-    if (quantity>20){
-      const discountPrice=price-(price*discount/10)
-      return(
-        <>
-        <span style={{textDecoration: "line-through",textDecorationColor: "gray",color:"gray"}}>{price}$</span><span style={{fontSize:"32px",fontWeight:"600",marginLeft:"5px"}}>          {discountPrice}$</span>
-        </>
-      )
+
+  const removeFromCart = (id) => {
+    const productToRemove = cart.find((product) => product.id === id);
+  
+    if (!productToRemove) {
+      // Product not found in cart
+      return;
     }
-    else{ 
-      return(
-        <h4>{price}$</h4>
-      )
+  
+    const quantityInCart = productToRemove.quantityInCart;
+  
+    setProducts((prevProducts) =>
+      prevProducts.map((product) => {
+        if (product.id === id) {
+          return {
+            ...product,
+            totalQuantity: product.totalQuantity - quantityInCart,
+          };
+        }
+        return product;
+      })
+    );
+  
+    setCart((prevCart) => {
+      const newCart = prevCart.filter((product) => product.id !== id);
+      return newCart;
+    });
+  console.log("removing...")
+    toast.success("Successfully removed from cart!");
+  };
+
+  function onSale(quantity, discount, price) {
+    if (quantity > 20) {
+      const discountPrice = price - (price * discount) / 10;
+      return (
+        <>
+          <span
+            style={{
+              textDecoration: "line-through",
+              textDecorationColor: "gray",
+              color: "gray",
+            }}
+          >
+            {price}$
+          </span>
+          <span
+            style={{ fontSize: "32px", fontWeight: "600", marginLeft: "5px" }}
+          >
+            {" "}
+            {discountPrice}$
+          </span>
+        </>
+      );
+    } else {
+      return <h4>{price}$</h4>;
     }
   }
 
@@ -91,7 +162,10 @@ function ContextProvider({ children }) {
     cart,
     setCart,
     addToCart,
-    onSale
+    onSale,
+    increase,
+    removeFromCart,
+    decrease,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

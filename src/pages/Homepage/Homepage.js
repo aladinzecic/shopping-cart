@@ -11,10 +11,10 @@ export default function Homepage() {
         <h1 className="home-title">
           Fresh Food<br></br> & Grocery shopping
         </h1>
-        <p className="smaller-text">
-          <a className="products" href='/Products' onClick={()=>{Navigation("/Products")}}>
+        <p className="smaller-text" >
+          <p className="products"  onClick={()=>{Navigation("/Products")}}>
             Check our products
-          </a>
+          </p>
         </p>
       </div>
     </div>

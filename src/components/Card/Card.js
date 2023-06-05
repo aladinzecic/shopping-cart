@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import "./Card.css";
 import { AppContext } from "../../Context/AppContext";
+import { Toaster } from 'react-hot-toast'
 
 export default function Card({
   id,
@@ -17,6 +18,7 @@ export default function Card({
   productQuantity,
   productDiscount,
   addToCart,
+  removeFromCart
 }) {
   const { cart, onSale } = useContext(AppContext);
   const [isAdded, setIsAdded] = useState(false);
@@ -30,6 +32,8 @@ export default function Card({
 
   return (
     <div className="around">
+      <div><Toaster    position="bottom-right"
+/></div>
       {productQuantity > 20 && (
         <div className="sale-div">
           <h5>Sale!</h5>
@@ -113,7 +117,7 @@ export default function Card({
                     },
                   }}
                   onClick={
-                    addToCart
+                    removeFromCart
                   }
                   size="large"
                   className="btn-add"

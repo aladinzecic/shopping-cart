@@ -126,7 +126,16 @@ function ContextProvider({ children }) {
       return newCart;
     });
   console.log("removing...")
-    toast.success("Successfully removed from cart!");
+    toast.error("Successfully removed from cart!");
+  };
+  const removeAllFromCart = () => {  
+    setProducts(productsJSON)
+    
+  
+    setCart(() => {
+      const newCart = [];
+      return newCart;
+    });
   };
 
   function onSale(quantity, discount, price) {
@@ -166,6 +175,7 @@ function ContextProvider({ children }) {
     increase,
     removeFromCart,
     decrease,
+    removeAllFromCart,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

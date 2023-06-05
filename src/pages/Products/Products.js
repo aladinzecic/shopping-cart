@@ -5,7 +5,7 @@ import "./Products.css";
 import { Pagination } from "@mui/material";
 
 export default function Products() {
-  const { products,addToCart,cart } = useContext(AppContext);
+  const { products,addToCart,removeFromCart } = useContext(AppContext);
   const [page, setPage] = useState(1);
 
   const handleChange = (event, value) => {
@@ -32,6 +32,10 @@ export default function Products() {
               addToCart={() => {
                 addToCart(product.id)
               }}
+              removeFromCart={() => {
+                removeFromCart(product.id)
+              }}
+              
             />
           ))
           .slice((page - 1) * productPerPage, page * productPerPage)}

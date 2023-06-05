@@ -1,6 +1,10 @@
 import React from 'react'
 import "./Homepage.css"
+import { useNavigate } from "react-router-dom";
+
 export default function Homepage() {
+  const Navigation = useNavigate();
+
   return (
     <div className="home-container">
       <div className="home-text">
@@ -8,7 +12,7 @@ export default function Homepage() {
           Fresh Food<br></br> & Grocery shopping
         </h1>
         <p className="smaller-text">
-          <a className="products" href="/products">
+          <a className="products" href='/Products' onClick={()=>{Navigation("/Products")}}>
             Check our products
           </a>
         </p>

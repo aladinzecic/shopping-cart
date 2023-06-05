@@ -75,7 +75,6 @@ function ContextProvider({ children }) {
     if (products.find((product) => product.id === id).totalQuantity === 0) {
       toast.error("There are no product in stock!");
     } else {
-      console.log(id)
       setProducts(
         products.map((product) => {
           if (product.id === id) {
@@ -125,7 +124,6 @@ function ContextProvider({ children }) {
       const newCart = prevCart.filter((product) => product.id !== id);
       return newCart;
     });
-  console.log("removing...")
     toast.error("Successfully removed from cart!");
   };
   const removeAllFromCart = () => {  

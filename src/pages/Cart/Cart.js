@@ -50,7 +50,6 @@ export default function Cart() {
             <hr className="hr2"></hr>
             {cart.map(
               (product) => (
-                console.log(product.quantityInCart),
                 (
                   <CartCard
                     key={product.id}

@@ -11,7 +11,7 @@ export default function Cart() {
   const navigation = useNavigate();
   const { products, cart, onSale, removeFromCart, increase, decrease } =
     useContext(AppContext);
-  let [fullPrice, setFullPrice] = useState("0");
+  let [fullPrice] = useState("0");
   fullPrice = cart.reduce((prev, curr) => {
     const product = products.find((p) => p.id === curr.id);
     if (product.totalQuantity > 20) {
@@ -29,7 +29,7 @@ export default function Cart() {
   const handleDiscount = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      if (discount == "promo code") {
+      if (discount === "promo code") {
         setPromo(true);
         setDiscount("");
         setPlaceholder("COUPON APPROVED!");

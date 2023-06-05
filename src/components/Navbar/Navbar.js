@@ -14,7 +14,7 @@ export default function Navbar() {
         <NavLink to="/" className={"classic"}><img src={require("../../assets/images/logo.png")} alt='/' className='logo'></img></NavLink>
         <div className='links'>
         <NavLink to={"/products"} className={({isActive})=>isActive?"active":"classic"}><h2>PRODUCTS</h2></NavLink>
-        <NavLink to={"/cart"  }  className={({isActive})=>isActive?"active":"classic"}><div style={{position:"relative"}}><ShoppingCartIcon style={{color:"black",fontSize:"32px",position:"relative"}}/>{cart.length!=0?<div className='length'>{cart.length}</div>:<></>}</div></NavLink>
+        <NavLink to={"/cart"  }  className={({isActive})=>isActive?"active":"classic"}><div style={{position:"relative"}}><ShoppingCartIcon style={{color:"black",fontSize:"32px",position:"relative"}}/>{cart.length!==0?<div className='length'>{cart.length}</div>:<></>}</div></NavLink>
         </div>
     </header>
   ) 

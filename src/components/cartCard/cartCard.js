@@ -1,21 +1,17 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import "./cartCard.css";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { AppContext } from "../../Context/AppContext";
 import { Toaster } from 'react-hot-toast'
 
 export default function CartCard({
-  productId,
   productImage,
   productName,
   productQuantity,
   productPrice,
-  productDiscount,
   removeFromCart,
   increase,
   decrease
 }) {
-  const totalPrice = productPrice * productQuantity;
   return (
     <>
     <div><Toaster    position="bottom-right"/></div>

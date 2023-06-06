@@ -1,20 +1,22 @@
 import React from "react";
-import "./cartCard.css";
+import "./CartCard.css";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from "react-hot-toast";
 
 export default function CartCard({
   productImage,
   productName,
   productQuantity,
-  productPrice,
   removeFromCart,
   increase,
-  decrease
+  decrease,
+  price
 }) {
   return (
     <>
-    <div><Toaster    position="bottom-right"/></div>
+      <div>
+        <Toaster position="bottom-right" />
+      </div>
       <div
         style={{
           width: "60vw",
@@ -43,7 +45,9 @@ export default function CartCard({
               +
             </div>
             <div className="quantityy el">{productQuantity}</div>
-            <div className="minus el" onClick={decrease}>-</div>
+            <div className="minus el" onClick={decrease}>
+              -
+            </div>
           </div>
         </div>
         <div
@@ -55,7 +59,7 @@ export default function CartCard({
             alignItems: "center",
           }}
         >
-          <div className="text text1">{productPrice}</div>
+          <div className="text text1">{price * productQuantity}$</div>
         </div>
         <div
           style={{

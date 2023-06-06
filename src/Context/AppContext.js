@@ -135,7 +135,12 @@ function ContextProvider({ children }) {
       return newCart;
     });
   };
-
+  function onSalePrice(quantity, discount, price){
+    if (quantity > 20){
+      return price-(price*discount/10)
+    }
+    else return price
+  }
   function onSale(quantity, discount, price) {
     if (quantity > 20) {
       const discountPrice = price - (price * discount) / 10;
@@ -174,6 +179,7 @@ function ContextProvider({ children }) {
     removeFromCart,
     decrease,
     removeAllFromCart,
+    onSalePrice,
   };
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
 }

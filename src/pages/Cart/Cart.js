@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./Cart.css";
 import { useContext } from "react";
-import CartCard from "../../components/cartCard/cartCard";
 import { AppContext } from "../../Context/AppContext";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import CartCard from "../../components/CartCard/CartCard";
 export default function Cart() {
   const navigation = useNavigate();
-  const { products, cart, onSale, removeFromCart, increase, decrease } =
+  const { products, cart, onSale, removeFromCart, increase, decrease,onSalePrice } =
     useContext(AppContext);
   let [fullPrice] = useState("0");
   fullPrice = cart.reduce((prev, curr) => {
     const product = products.find((p) => p.id === curr.id);
-    if (product.totalQuantity > 20) {
+    if (product.totalQuantity+product.quantityInCart > 20) {
       return (
         prev +
         (curr.price - (curr.price * curr.discount) / 10) * curr.quantityInCart
@@ -33,7 +33,7 @@ export default function Cart() {
         setPromo(true);
         setDiscount("");
         setPlaceholder("COUPON APPROVED!");
-        toast.success("Coupon approved!")
+        toast.success("Coupon approved!");
       }
     }
   };
@@ -48,34 +48,33 @@ export default function Cart() {
               </h3>
             </div>
             <hr className="hr2"></hr>
-            {cart.map(
-              (product) => (
-                (
-                  <CartCard
-                    key={product.id}
-                    id={product.id}
-                    productImage={product.image_url}
-                    productPrice={onSale(
-                      product.totalQuantity,
-                      product.discount,
-                      product.price
-                    )}
-                    productName={product.title}
-                    productQuantity={product.quantityInCart}
-                    onKeyDown={handleDiscount}
-                    removeFromCart={() => {
-                      removeFromCart(product.id);
-                    }}
-                    increase={() => {
-                      increase(product.id);
-                    }}
-                    decrease={() => {
-                      decrease(product.id);
-                    }}
-                  />
-                )
-              )
-            )}
+            {cart.map((product) => (
+              <CartCard
+                key={product.id}
+                id={product.id}
+                productImage={product.image_url}
+                productPrice={onSale(
+                  product.totalQuantity,
+                  product.discount,
+                  product.price
+                )}
+                price={onSalePrice(product.totalQuantity,
+                  product.discount,
+                  product.price)}
+                productName={product.title}
+                productQuantity={product.quantityInCart}
+                onKeyDown={handleDiscount}
+                removeFromCart={() => {
+                  removeFromCart(product.id);
+                }}
+                increase={() => {
+                  increase(product.id);
+                }}
+                decrease={() => {
+                  decrease(product.id);
+                }}
+              />
+            ))}
           </div>
           <div className="buy-component">
             <div style={{ display: "flex", justifyContent: "start" }}>
@@ -164,9 +163,9 @@ export default function Cart() {
                 left: "0",
                 right: "0",
                 margin: "auto",
-                cursor:"pointer"
+                cursor: "pointer",
               }}
-              onClick={()=>navigation("/Products")}
+              onClick={() => navigation("/Products")}
             >
               CART IS EMPTY
             </h2>
